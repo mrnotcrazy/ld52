@@ -1,6 +1,7 @@
 extends RigidBody2D
 
-export var impulse: Vector2 = Vector2(100, -300)
+
+var dmg = -1
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -15,8 +16,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
+func destruct():
+	queue_free()
 
 func _on_selfDestruct_timeout():
-	queue_free()
+	destruct()
 	pass # Replace with function body.
+
+
+

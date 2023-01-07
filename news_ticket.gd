@@ -11,7 +11,7 @@ var activeLines=newsline1s
 func _physics_process(delta):
 	if get_position().x>=-2000:
 		set_position(Vector2(get_position().x-1,255))
-		print(get_position())
+		
 		pass
 	else:
 		set_position(Vector2(450,255))

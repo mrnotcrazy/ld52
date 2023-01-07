@@ -33,7 +33,7 @@ func _physics_process(delta):
 		
 		velocity = velocity
 		if Input.is_action_just_pressed("jump"):
-			print(is_on_floor())
+			#print(is_on_floor())
 			if is_on_floor():
 				velocity.y = jump_speed
 		get_node("hands").look_at(get_global_mouse_position())
