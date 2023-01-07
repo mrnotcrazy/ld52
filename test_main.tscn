@@ -1,21 +1,26 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://art/hopper_64x128_placeholder.png" type="Texture" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://block.tscn" type="PackedScene" id=3]
 [ext_resource path="res://main.gd" type="Script" id=4]
 [ext_resource path="res://art/heart_16x16_placeholder.png" type="Texture" id=5]
-[ext_resource path="res://hurtbox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://art/chamber_64x64_placeholder.png" type="Texture" id=6]
 [ext_resource path="res://news_ticket.gd" type="Script" id=7]
-[ext_resource path="res://art/m5x7.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://art/gunUI_128x64_placeholder.png" type="Texture" id=8]
 [ext_resource path="res://art/radio_16x16_placeholder.png" type="Texture" id=9]
 [ext_resource path="res://enemies/Base_enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://art/paralax/bluesky_960x540_placeholder1.png" type="Texture" id=11]
 [ext_resource path="res://art/paralax/clouds_480x270_placeholder1.png" type="Texture" id=12]
 [ext_resource path="res://art/paralax/props_960x540_placeholder1.png" type="Texture" id=13]
+[ext_resource path="res://art/pixelfont.tres" type="DynamicFont" id=15]
+[ext_resource path="res://art/ammoChamber_bounce_32x32_placeholder.png" type="Texture" id=16]
+[ext_resource path="res://art/blendUI_32x32_placeholder.png" type="Texture" id=17]
+[ext_resource path="res://art/m5x7.ttf" type="DynamicFontData" id=18]
 
 [sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 8 )
+size = 13
+font_data = ExtResource( 18 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
@@ -103,64 +108,64 @@ position = Vector2( 555, -10 )
 [node name="block2" parent="block/block3/block4" instance=ExtResource( 3 )]
 position = Vector2( 128, 0 )
 
-[node name="block2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1307, 220 )
+[node name="block5" parent="block" instance=ExtResource( 3 )]
+position = Vector2( 1239, 13 )
 
-[node name="block" parent="block2" instance=ExtResource( 3 )]
+[node name="block" parent="block/block5" instance=ExtResource( 3 )]
 position = Vector2( 64, 0 )
 
-[node name="block2" parent="block2" instance=ExtResource( 3 )]
+[node name="block2" parent="block/block5" instance=ExtResource( 3 )]
 position = Vector2( 128, 0 )
 
-[node name="block4" parent="block2" instance=ExtResource( 3 )]
+[node name="block4" parent="block/block5" instance=ExtResource( 3 )]
 position = Vector2( -177, 0 )
 
-[node name="block" parent="block2/block4" instance=ExtResource( 3 )]
+[node name="block" parent="block/block5/block4" instance=ExtResource( 3 )]
 position = Vector2( 64, 0 )
 
-[node name="block3" parent="block2/block4" instance=ExtResource( 3 )]
+[node name="block3" parent="block/block5/block4" instance=ExtResource( 3 )]
 position = Vector2( 368, 1 )
 
-[node name="block" parent="block2/block4/block3" instance=ExtResource( 3 )]
+[node name="block" parent="block/block5/block4/block3" instance=ExtResource( 3 )]
 position = Vector2( 64, 0 )
 
-[node name="block2" parent="block2/block4/block3" instance=ExtResource( 3 )]
+[node name="block2" parent="block/block5/block4/block3" instance=ExtResource( 3 )]
 position = Vector2( 128, 0 )
 
-[node name="block4" parent="block2/block4" instance=ExtResource( 3 )]
+[node name="block4" parent="block/block5/block4" instance=ExtResource( 3 )]
 position = Vector2( 555, -10 )
 
-[node name="block2" parent="block2/block4" instance=ExtResource( 3 )]
+[node name="block2" parent="block/block5/block4" instance=ExtResource( 3 )]
 position = Vector2( 128, 0 )
 
-[node name="block3" parent="block2" instance=ExtResource( 3 )]
+[node name="block3" parent="block/block5" instance=ExtResource( 3 )]
 position = Vector2( 619, -12 )
 
-[node name="block" parent="block2/block3" instance=ExtResource( 3 )]
+[node name="block" parent="block/block5/block3" instance=ExtResource( 3 )]
 position = Vector2( 64, 0 )
 
-[node name="block2" parent="block2/block3" instance=ExtResource( 3 )]
+[node name="block2" parent="block/block5/block3" instance=ExtResource( 3 )]
 position = Vector2( 128, 0 )
 
-[node name="block4" parent="block2/block3" instance=ExtResource( 3 )]
+[node name="block4" parent="block/block5/block3" instance=ExtResource( 3 )]
 position = Vector2( -177, 0 )
 
-[node name="block" parent="block2/block3/block4" instance=ExtResource( 3 )]
+[node name="block" parent="block/block5/block3/block4" instance=ExtResource( 3 )]
 position = Vector2( 64, 0 )
 
-[node name="block3" parent="block2/block3/block4" instance=ExtResource( 3 )]
+[node name="block3" parent="block/block5/block3/block4" instance=ExtResource( 3 )]
 position = Vector2( 368, 1 )
 
-[node name="block" parent="block2/block3/block4/block3" instance=ExtResource( 3 )]
+[node name="block" parent="block/block5/block3/block4/block3" instance=ExtResource( 3 )]
 position = Vector2( 64, 0 )
 
-[node name="block2" parent="block2/block3/block4/block3" instance=ExtResource( 3 )]
+[node name="block2" parent="block/block5/block3/block4/block3" instance=ExtResource( 3 )]
 position = Vector2( 128, 0 )
 
-[node name="block4" parent="block2/block3/block4" instance=ExtResource( 3 )]
+[node name="block4" parent="block/block5/block3/block4" instance=ExtResource( 3 )]
 position = Vector2( 555, -10 )
 
-[node name="block2" parent="block2/block3/block4" instance=ExtResource( 3 )]
+[node name="block2" parent="block/block5/block3/block4" instance=ExtResource( 3 )]
 position = Vector2( 128, 0 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
@@ -188,7 +193,7 @@ margin_left = 448.0
 margin_top = 255.0
 margin_right = 488.0
 margin_bottom = 269.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 15 )
 uppercase = true
 script = ExtResource( 7 )
 
@@ -197,32 +202,99 @@ margin_right = 67.0
 margin_bottom = 272.0
 
 [node name="Ammo_container" type="VBoxContainer" parent="player/Camera2D/CanvasLayer/UI"]
-margin_left = 16.0
-margin_top = 69.0
-margin_right = 56.0
-margin_bottom = 109.0
-
-[node name="Ammo_test" type="TextureRect" parent="player/Camera2D/CanvasLayer/UI/Ammo_container"]
-margin_right = 64.0
-margin_bottom = 64.0
-texture = ExtResource( 1 )
+margin_left = 28.0
+margin_top = 32.0
+margin_right = 68.0
+margin_bottom = 140.0
+alignment = 2
 
 [node name="health" type="HBoxContainer" parent="player/Camera2D/CanvasLayer/UI"]
-margin_left = 6.0
-margin_top = 5.0
-margin_right = 62.0
-margin_bottom = 45.0
+margin_left = 7.0
+margin_top = 1.0
+margin_right = 63.0
+margin_bottom = 41.0
 custom_constants/separation = -5
 
-[node name="TextureRect" type="TextureRect" parent="player/Camera2D/CanvasLayer/UI"]
-margin_left = 52.0
-margin_top = 252.0
-margin_right = 92.0
-margin_bottom = 292.0
+[node name="radio" type="TextureRect" parent="player/Camera2D/CanvasLayer/UI"]
+margin_left = 51.0
+margin_top = 253.0
+margin_right = 91.0
+margin_bottom = 293.0
 texture = ExtResource( 9 )
 
-[node name="hurtbox" parent="." instance=ExtResource( 6 )]
-position = Vector2( 282, 195 )
+[node name="hopper" type="TextureRect" parent="player/Camera2D/CanvasLayer/UI"]
+margin_left = 23.0
+margin_top = 26.0
+margin_right = 87.0
+margin_bottom = 154.0
+rect_scale = Vector2( 0.652, 1 )
+texture = ExtResource( 1 )
+
+[node name="chamber_art" type="TextureRect" parent="player/Camera2D/CanvasLayer/UI"]
+margin_top = 186.0
+margin_right = 64.0
+margin_bottom = 250.0
+texture = ExtResource( 6 )
+
+[node name="ammo_display" type="TextureRect" parent="player/Camera2D/CanvasLayer/UI/chamber_art"]
+margin_left = 18.0
+margin_top = 14.0
+margin_right = 50.0
+margin_bottom = 46.0
+texture = ExtResource( 16 )
+
+[node name="gun" type="TextureRect" parent="player/Camera2D/CanvasLayer/UI"]
+margin_left = 1.0
+margin_top = 146.0
+margin_right = 129.0
+margin_bottom = 210.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="player/Camera2D/CanvasLayer/UI"]
+margin_left = 12.0
+margin_top = 16.0
+margin_right = 69.0
+margin_bottom = 189.0
+custom_fonts/font = ExtResource( 15 )
+text = "HOPPER
+
+
+
+
+
+
+
+
+
+CHAMBER"
+
+[node name="ammo_desc" type="Label" parent="player/Camera2D/CanvasLayer/UI"]
+margin_left = 13.0
+margin_top = 245.0
+margin_right = 54.0
+margin_bottom = 259.0
+custom_fonts/font = ExtResource( 15 )
+text = "Bounces"
+
+[node name="labelblend" type="Label" parent="player/Camera2D/CanvasLayer/UI"]
+margin_left = 3.0
+margin_top = 87.0
+margin_right = 38.0
+margin_bottom = 164.0
+custom_fonts/font = SubResource( 1 )
+text = "Press
+E
+to 
+blend"
+
+[node name="blender" type="TextureRect" parent="player/Camera2D/CanvasLayer/UI"]
+margin_left = 2.0
+margin_top = 82.0
+margin_right = 34.0
+margin_bottom = 114.0
+rect_scale = Vector2( 0.799999, 1.96 )
+texture = ExtResource( 17 )
 
 [node name="Base_enemy" parent="." instance=ExtResource( 10 )]
 position = Vector2( 362, 191 )
