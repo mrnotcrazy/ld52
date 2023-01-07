@@ -13,6 +13,9 @@ var bullet = preload("res://bullet.tscn")
 var can_fire = true
 
 
+func updateHealth(x):
+	owner.updateHealth(x)
+	pass
 
 func get_input():
 	velocity.x = 0

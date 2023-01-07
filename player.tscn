@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 10 )
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 1 )
+jump_speed = -500
 
 [node name="playerSprite" type="Sprite" parent="."]
 position = Vector2( -1.78814e-07, -10 )
