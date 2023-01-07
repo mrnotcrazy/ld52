@@ -36,11 +36,16 @@ func _physics_process(delta):
 		get_node("hands").look_at(get_global_mouse_position())
 		#shooting time
 		if Input.is_action_pressed("fire") and can_fire:
-			var bullet_instance = bullet.instantiate()
+			var bullet_instance = bullet.instance()
 			bullet_instance.position = $hands.get_global_position()
 			bullet_instance.rotation_degrees = $hands.rotation_degrees
 			bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated($hands.rotation), Vector2())
 			get_tree().get_root().add_child(bullet_instance)
 			can_fire = false
-			#await get_tree().create_timer(fire_rate).timeout
-			can_fire = true
+			get_node("firerate").start(.5)
+			
+
+
+func _on_firerate_timeout():
+	can_fire = true
+	pass # Replace with function body.
