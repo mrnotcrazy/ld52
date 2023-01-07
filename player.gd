@@ -6,7 +6,7 @@ export (int) var jump_speed = -700
 export (int) var gravity = 1800
 var velocity = Vector2.ZERO
 const UP = Vector2(0, -1)
-export var bullet_speed = 1000
+export var bullet_speed = 10000
 export var fire_rate = 0.2
 
 var bullet = preload("res://bullet.tscn")
@@ -42,7 +42,8 @@ func _physics_process(delta):
 			var bullet_instance = bullet.instance()
 			bullet_instance.position = $hands.get_global_position()
 			bullet_instance.rotation_degrees = $hands.rotation_degrees
-			bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated($hands.rotation), Vector2())
+			bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated($hands.rotation) )
+			
 			get_tree().get_root().add_child(bullet_instance)
 			can_fire = false
 			get_node("firerate").start(.5)
