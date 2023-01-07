@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
@@ -10,14 +10,38 @@
 [ext_resource path="res://art/m5x7.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://art/radio_16x16_placeholder.png" type="Texture" id=9]
 [ext_resource path="res://enemies/Base_enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://art/paralax/bluesky_960x540_placeholder1.png" type="Texture" id=11]
+[ext_resource path="res://art/paralax/clouds_480x270_placeholder1.png" type="Texture" id=12]
+[ext_resource path="res://art/paralax/props_960x540_placeholder1.png" type="Texture" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 8 )
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( 1, 0 )
 script = ExtResource( 4 )
 heartArt = ExtResource( 5 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="background" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 960, 540 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/background"]
+texture = ExtResource( 11 )
+
+[node name="clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 960, 540 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/clouds"]
+texture = ExtResource( 12 )
+
+[node name="props" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 960, 540 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/props"]
+texture = ExtResource( 13 )
 
 [node name="block" parent="." instance=ExtResource( 3 )]
 position = Vector2( 68, 207 )
@@ -28,8 +52,59 @@ position = Vector2( 64, 0 )
 [node name="block2" parent="block" instance=ExtResource( 3 )]
 position = Vector2( 128, 0 )
 
+[node name="block4" parent="block" instance=ExtResource( 3 )]
+position = Vector2( -177, 0 )
+
+[node name="block" parent="block/block4" instance=ExtResource( 3 )]
+position = Vector2( 64, 0 )
+
+[node name="block3" parent="block/block4" instance=ExtResource( 3 )]
+position = Vector2( 368, 1 )
+
+[node name="block" parent="block/block4/block3" instance=ExtResource( 3 )]
+position = Vector2( 64, 0 )
+
+[node name="block2" parent="block/block4/block3" instance=ExtResource( 3 )]
+position = Vector2( 128, 0 )
+
+[node name="block4" parent="block/block4" instance=ExtResource( 3 )]
+position = Vector2( 555, -10 )
+
+[node name="block2" parent="block/block4" instance=ExtResource( 3 )]
+position = Vector2( 128, 0 )
+
+[node name="block3" parent="block" instance=ExtResource( 3 )]
+position = Vector2( 619, -12 )
+
+[node name="block" parent="block/block3" instance=ExtResource( 3 )]
+position = Vector2( 64, 0 )
+
+[node name="block2" parent="block/block3" instance=ExtResource( 3 )]
+position = Vector2( 128, 0 )
+
+[node name="block4" parent="block/block3" instance=ExtResource( 3 )]
+position = Vector2( -177, 0 )
+
+[node name="block" parent="block/block3/block4" instance=ExtResource( 3 )]
+position = Vector2( 64, 0 )
+
+[node name="block3" parent="block/block3/block4" instance=ExtResource( 3 )]
+position = Vector2( 368, 1 )
+
+[node name="block" parent="block/block3/block4/block3" instance=ExtResource( 3 )]
+position = Vector2( 64, 0 )
+
+[node name="block2" parent="block/block3/block4/block3" instance=ExtResource( 3 )]
+position = Vector2( 128, 0 )
+
+[node name="block4" parent="block/block3/block4" instance=ExtResource( 3 )]
+position = Vector2( 555, -10 )
+
+[node name="block2" parent="block/block3/block4" instance=ExtResource( 3 )]
+position = Vector2( 128, 0 )
+
 [node name="block2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 259, 208 )
+position = Vector2( 1307, 220 )
 
 [node name="block" parent="block2" instance=ExtResource( 3 )]
 position = Vector2( 64, 0 )
@@ -37,14 +112,62 @@ position = Vector2( 64, 0 )
 [node name="block2" parent="block2" instance=ExtResource( 3 )]
 position = Vector2( 128, 0 )
 
-[node name="block3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 446, 197 )
+[node name="block4" parent="block2" instance=ExtResource( 3 )]
+position = Vector2( -177, 0 )
+
+[node name="block" parent="block2/block4" instance=ExtResource( 3 )]
+position = Vector2( 64, 0 )
+
+[node name="block3" parent="block2/block4" instance=ExtResource( 3 )]
+position = Vector2( 368, 1 )
+
+[node name="block" parent="block2/block4/block3" instance=ExtResource( 3 )]
+position = Vector2( 64, 0 )
+
+[node name="block2" parent="block2/block4/block3" instance=ExtResource( 3 )]
+position = Vector2( 128, 0 )
+
+[node name="block4" parent="block2/block4" instance=ExtResource( 3 )]
+position = Vector2( 555, -10 )
+
+[node name="block2" parent="block2/block4" instance=ExtResource( 3 )]
+position = Vector2( 128, 0 )
+
+[node name="block3" parent="block2" instance=ExtResource( 3 )]
+position = Vector2( 619, -12 )
+
+[node name="block" parent="block2/block3" instance=ExtResource( 3 )]
+position = Vector2( 64, 0 )
+
+[node name="block2" parent="block2/block3" instance=ExtResource( 3 )]
+position = Vector2( 128, 0 )
+
+[node name="block4" parent="block2/block3" instance=ExtResource( 3 )]
+position = Vector2( -177, 0 )
+
+[node name="block" parent="block2/block3/block4" instance=ExtResource( 3 )]
+position = Vector2( 64, 0 )
+
+[node name="block3" parent="block2/block3/block4" instance=ExtResource( 3 )]
+position = Vector2( 368, 1 )
+
+[node name="block" parent="block2/block3/block4/block3" instance=ExtResource( 3 )]
+position = Vector2( 64, 0 )
+
+[node name="block2" parent="block2/block3/block4/block3" instance=ExtResource( 3 )]
+position = Vector2( 128, 0 )
+
+[node name="block4" parent="block2/block3/block4" instance=ExtResource( 3 )]
+position = Vector2( 555, -10 )
+
+[node name="block2" parent="block2/block3/block4" instance=ExtResource( 3 )]
+position = Vector2( 128, 0 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 191, 144 )
+position = Vector2( 235, 152 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2( 0, -10 )
+position = Vector2( 0, -75 )
 current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="player/Camera2D"]
