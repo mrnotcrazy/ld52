@@ -29,4 +29,10 @@ offset = Vector2( -1.531, -32 )
 
 [node name="firerate" type="Timer" parent="."]
 
+[node name="ammoUpdate" type="Timer" parent="."]
+wait_time = 0.504
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="firerate" to="." method="_on_firerate_timeout"]
+[connection signal="timeout" from="ammoUpdate" to="." method="_on_ammoUpdate_timeout"]

@@ -20,3 +20,8 @@ func _process(delta):
 func _on_Timer_timeout():
 	queue_free()
 	pass # Replace with function body.
+
+
+func _on_updateAmmo_timeout():
+	
+	pass # Replace with function body.

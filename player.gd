@@ -34,7 +34,7 @@ var can_fire = true
 
 func _ready():
 	
-	#scroll()
+	
 	pass # Replace with function body.
 	
 
@@ -107,4 +107,21 @@ func ammoType():
 	
 func _on_firerate_timeout():
 	can_fire = true
+	pass # Replace with function body.
+
+
+func addFruit(fruit):
+	
+	clip.append(fruit)
+	if chamber=="empty":
+		chamber=clip.pop_front()
+	
+		
+	owner.updateAmmo()
+	pass
+
+
+
+func _on_ammoUpdate_timeout():
+	owner.updateAmmo()
 	pass # Replace with function body.
