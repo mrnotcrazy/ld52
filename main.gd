@@ -48,11 +48,34 @@ func updateAmmo():
 	match playerNode.chamber:
 		"bounce":
 			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/ammoChamber_bounce_32x32_placeholder.png")
+			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="Bounce"
 		"explosive":
 			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/ammoChamber_explosive_32x32_placeholder.png")
+			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="Explosive"
 		"penetration":
 			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/ammoChamber_penetration_32x32_placeholder.png")
+			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="Penetration"
+		"explosiveexplosive":
+			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/ammoChamber_explosiveexplosive_32x32_placeholder.png")
+			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="Big Boom"
+		"penetrationpenetration":
+			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/ammoChamber_penetrationpenetration_32x32_placeholder.png")
+			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="ShotGun"
+		"bouncebounce":
+			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/ammoChamber_bouncebounce_32x32_placeholder.png")
+			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="Big Bounce"
+		"bounceexplosive":
+			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/ammoChamber_bounceexplosive_32x32_placeholder.png")
+			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="Bouncing Betsie"
+		"bouncepenetration":
+			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/ammoChamber_bouncepenetration_32x32_placeholder.png")
+			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="bouncing shotgun"
+		"explosivepenetration":
+			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/ammoChamber_explosivepenetration_32x32_placeholder.png")
+			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="Fragmentation"
 		"empty":
 			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/enemy_base_16x32_placeholder.png")
+			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="EMPTY"
+			
 			
 	pass

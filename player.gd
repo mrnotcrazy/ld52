@@ -37,7 +37,48 @@ func _ready():
 	
 	pass # Replace with function body.
 	
-
+func blend():
+	if clip.size()>=2:
+		var fruit=clip.slice(0,1)
+		if fruit[0]=="bounce" and fruit[1]=="bounce":
+			clip.pop_front()
+			clip.pop_front()
+			chamber="bouncebounce"
+		if fruit[0]=="bounce" and fruit[1]=="explosive":
+			clip.pop_front()
+			clip.pop_front()
+			chamber="bounceexplosive"
+		if fruit[0]=="bounce" and fruit[1]=="penetration":
+			clip.pop_front()
+			clip.pop_front()
+			chamber="bouncepenetration"
+		if fruit[0]=="explosive" and fruit[1]=="bounce":
+			clip.pop_front()
+			clip.pop_front()
+			chamber="bounceexplosive"
+		if fruit[0]=="explosive" and fruit[1]=="explosive":
+			clip.pop_front()
+			clip.pop_front()
+			chamber="explosiveexplosive"
+		if fruit[0]=="explosive" and fruit[1]=="penetration":
+			clip.pop_front()
+			clip.pop_front()
+			chamber="explosivepenetration"
+		if fruit[0]=="penetration" and fruit[1]=="bounce":
+			clip.pop_front()
+			clip.pop_front()
+			chamber="bouncepenetration"
+		if fruit[0]=="penetration" and fruit[1]=="explosive":
+			clip.pop_front()
+			clip.pop_front()
+			chamber="explosivepenetration"
+		if fruit[0]=="penetration" and fruit[1]=="penetration":
+			clip.pop_front()
+			clip.pop_front()
+			chamber="penetrationpenetration"
+		owner.updateAmmo()
+		
+	pass
 
 func updateHealth(x):
 	owner.updateHealth(x)
@@ -80,6 +121,9 @@ func _physics_process(delta):
 					chamber="empty"
 				owner.updateAmmo()
 			#print("chamber"+chamber,"clip", clip)
+		if Input.is_action_just_pressed("blend"):
+			blend()
+
 func ammoType():
 	
 	
@@ -111,13 +155,13 @@ func _on_firerate_timeout():
 
 
 func addFruit(fruit):
-	
-	clip.append(fruit)
-	if chamber=="empty":
-		chamber=clip.pop_front()
-	
+	if clip.size()<=3:
+		clip.append(fruit)
+		if chamber=="empty":
+			chamber=clip.pop_front()
 		
-	owner.updateAmmo()
+			
+		owner.updateAmmo()
 	pass
 
 
