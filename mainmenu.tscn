@@ -1,0 +1,224 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://art/oldtv.png" type="Texture" id=1]
+[ext_resource path="res://art/BG.png" type="Texture" id=2]
+[ext_resource path="res://art/pixelfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://sounds/title_track_placeholder.mp3" type="AudioStream" id=4]
+[ext_resource path="res://mainmenu.gd" type="Script" id=5]
+[ext_resource path="res://art/howto/example1.png" type="Texture" id=6]
+
+[node name="mainmenu" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 30, 30 )
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 144.0
+margin_top = 59.0
+margin_right = 184.0
+margin_bottom = 99.0
+rect_scale = Vector2( 6.017, 5.192 )
+texture = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 111.0
+margin_top = 7.0
+margin_right = 1135.0
+margin_bottom = 1031.0
+rect_scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )
+
+[node name="Start" type="Button" parent="."]
+margin_left = 187.0
+margin_top = 95.0
+margin_right = 257.0
+margin_bottom = 115.0
+custom_fonts/font = ExtResource( 3 )
+text = "Start Game"
+
+[node name="howto" type="Button" parent="."]
+margin_left = 184.0
+margin_top = 119.0
+margin_right = 258.0
+margin_bottom = 139.0
+custom_fonts/font = ExtResource( 3 )
+text = "How to play"
+
+[node name="next" type="Button" parent="howto"]
+visible = false
+margin_left = 176.0
+margin_top = 67.0
+margin_right = 250.0
+margin_bottom = 87.0
+custom_fonts/font = ExtResource( 3 )
+text = "Next"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="howto1" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = 4.0
+margin_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="howto1"]
+margin_left = 306.0
+margin_top = 3.0
+margin_right = 706.0
+margin_bottom = 368.0
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="howto1"]
+margin_left = 349.0
+margin_top = 12.0
+margin_right = 389.0
+margin_bottom = 26.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "On the left  you will
+see some squres with
+shapes in them..
+
+Those are the ammo"
+
+[node name="howto2" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = 4.0
+margin_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="howto2"]
+margin_left = 306.0
+margin_top = 3.0
+margin_right = 706.0
+margin_bottom = 368.0
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="howto2"]
+margin_left = 344.0
+margin_top = 8.0
+margin_right = 459.0
+margin_bottom = 101.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "There are three kinds
+Explosive oranges
+rocket carrots
+penetrating potatoes
+
+You can combine them
+as well"
+
+[node name="howto3" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = 4.0
+margin_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="howto3"]
+margin_left = 306.0
+margin_top = 3.0
+margin_right = 706.0
+margin_bottom = 368.0
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="howto3"]
+margin_left = 344.0
+margin_top = 8.0
+margin_right = 459.0
+margin_bottom = 101.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "if you press E the two
+in the bottom of the
+ hopper will be blended
+You can see which one
+you have in the 
+chamber
+"
+
+[node name="howto4" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = 4.0
+margin_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="howto4"]
+margin_left = 306.0
+margin_top = 3.0
+margin_right = 706.0
+margin_bottom = 368.0
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="howto4"]
+margin_left = 344.0
+margin_top = 8.0
+margin_right = 459.0
+margin_bottom = 101.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "It also gives you a 
+hint as to what the
+combination might
+do. In general two
+are better than one
+"
+
+[node name="howto5" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = 4.0
+margin_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="howto5"]
+margin_left = 306.0
+margin_top = 3.0
+margin_right = 706.0
+margin_bottom = 368.0
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="howto5"]
+margin_left = 344.0
+margin_top = 8.0
+margin_right = 459.0
+margin_bottom = 101.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "WSAD to move, w jumps
+click to shoot, e to 
+blend. Try to move 
+to the right and 
+kill enemies without
+dying and thats about
+it"
+
+[connection signal="button_down" from="Start" to="." method="_on_Start_button_down"]
+[connection signal="button_down" from="howto" to="." method="_on_howto_button_down"]
+[connection signal="button_down" from="howto/next" to="." method="_on_next_button_down"]

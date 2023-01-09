@@ -22,6 +22,9 @@ func updateHealth(update):
 		var heartUI=TextureRect.new()
 		heartUI.texture=heartArt
 		$player/Camera2D/CanvasLayer/UI/health.add_child(heartUI)
+	if health<=0:
+		get_tree().reload_current_scene()
+		pass
 	pass
 
 func updateAmmo():
@@ -63,13 +66,13 @@ func updateAmmo():
 			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="ShotGun"
 		"bouncebounce":
 			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/ammoChamber_bouncebounce_32x32_placeholder.png")
-			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="Big Bounce"
+			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="Triple Bounce"
 		"bounceexplosive":
 			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/ammoChamber_bounceexplosive_32x32_placeholder.png")
 			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="Bouncing Betsie"
 		"bouncepenetration":
 			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/ammoChamber_bouncepenetration_32x32_placeholder.png")
-			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="bouncing shotgun"
+			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="bouncing spikeball"
 		"explosivepenetration":
 			$player/Camera2D/CanvasLayer/UI/chamber_art/ammo_display.texture=load("res://art/ammoChamber_explosivepenetration_32x32_placeholder.png")
 			$player/Camera2D/CanvasLayer/UI/ammo_desc.text="Fragmentation"
@@ -79,3 +82,4 @@ func updateAmmo():
 			
 			
 	pass
+

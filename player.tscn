@@ -1,31 +1,37 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://art/gunUI_128x64_placeholder.png" type="Texture" id=2]
+[ext_resource path="res://sounds/shoot.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/hurt.mp3" type="AudioStream" id=4]
+[ext_resource path="res://sounds/jump.mp3" type="AudioStream" id=5]
+[ext_resource path="res://art/player_16x32_placeholder.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 10 )
 
 [node name="player" type="KinematicBody2D" groups=["player"]]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource( 1 )
 jump_speed = -500
 bullet_speed = 500
 
 [node name="playerSprite" type="Sprite" parent="."]
-position = Vector2( -1.78814e-07, -10 )
-scale = Vector2( 0.15625, 0.3125 )
+position = Vector2( -0.25, -11.25 )
+scale = Vector2( 0.84375, 0.796875 )
+texture = ExtResource( 6 )
+
+[node name="hands" type="Sprite" parent="."]
+position = Vector2( 1, -12 )
+scale = Vector2( 0.125, 0.113281 )
 texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -1.531, -32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -10 )
 shape = SubResource( 1 )
-
-[node name="hands" type="Sprite" parent="."]
-position = Vector2( -1.90735e-06, -10 )
-scale = Vector2( 0.282091, 0.0313247 )
-texture = ExtResource( 2 )
-centered = false
-offset = Vector2( -1.531, -32 )
 
 [node name="firerate" type="Timer" parent="."]
 
@@ -33,6 +39,16 @@ offset = Vector2( -1.531, -32 )
 wait_time = 0.504
 one_shot = true
 autostart = true
+
+[node name="shootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="hurtSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="jumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -18.352
 
 [connection signal="timeout" from="firerate" to="." method="_on_firerate_timeout"]
 [connection signal="timeout" from="ammoUpdate" to="." method="_on_ammoUpdate_timeout"]

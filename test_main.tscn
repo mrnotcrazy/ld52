@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://art/hopper_64x128_placeholder.png" type="Texture" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://news_ticket.gd" type="Script" id=7]
 [ext_resource path="res://art/gunUI_128x64_placeholder.png" type="Texture" id=8]
 [ext_resource path="res://art/radio_16x16_placeholder.png" type="Texture" id=9]
-[ext_resource path="res://enemies/Base_enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://art/paralax/bluesky_960x540_placeholder1.png" type="Texture" id=11]
 [ext_resource path="res://art/paralax/clouds_480x270_placeholder1.png" type="Texture" id=12]
 [ext_resource path="res://art/paralax/props_960x540_placeholder1.png" type="Texture" id=13]
@@ -18,7 +17,6 @@
 [ext_resource path="res://art/ammoChamber_bounce_32x32_placeholder.png" type="Texture" id=16]
 [ext_resource path="res://art/blendUI_32x32_placeholder.png" type="Texture" id=17]
 [ext_resource path="res://art/m5x7.ttf" type="DynamicFontData" id=18]
-[ext_resource path="res://fruit.tscn" type="PackedScene" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 size = 13
@@ -298,21 +296,10 @@ margin_bottom = 114.0
 rect_scale = Vector2( 0.799999, 1.96 )
 texture = ExtResource( 17 )
 
-[node name="Base_enemy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 362, 191 )
-
 [node name="plant" parent="." instance=ExtResource( 14 )]
 position = Vector2( 172, 199 )
-fruitType = "explosive"
-
-[node name="plant2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 550, 184 )
-fruitType = "penetration"
-
-[node name="plant3" parent="." instance=ExtResource( 14 )]
-position = Vector2( 109, 197 )
 fruitType = "bounce"
 
-[node name="fruit" parent="." instance=ExtResource( 19 )]
-position = Vector2( 198, 185 )
-fruitType = "penetration"
+[node name="plant2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 217, 198 )
+fruitType = "explosive"

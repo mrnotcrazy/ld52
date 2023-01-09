@@ -9,24 +9,26 @@ const UP = Vector2(0, -1)
 export var bullet_speed = 10000
 export var fire_rate = 0.2
 
+var direction = 0
+
 
 #a basic bullet type for testing
 var bullet = preload("res://bullet.tscn")
 #types of basic ammo: bounce, explosive, penetration
 var bounceScene = preload("res://bullets/bounce.tscn")
 var explosiveScene = preload("res://bullets/rocket.tscn")
-var penetrationScene = preload("res://bullet.tscn")
+var penetrationScene = preload("res://bullets/penetration.tscn")
 #upgrade types: bouncing explosive, fragment explosive, bouncing penetration, and so forth
-var bounceExplosiveScene=preload("res://bullet.tscn")
-var bouncePenetrationScene=preload("res://bullet.tscn")
-var bounceBounceScene=preload("res://bullet.tscn")
-var explosivePenetrationScene=preload("res://bullet.tscn")
-var explosiveExplosiveScene=preload("res://bullet.tscn")
-var penetrationPenetrationScene=preload("res://bullet.tscn")
+var bounceExplosiveScene=preload("res://bullets/bounceexplosion.tscn")
+var bouncePenetrationScene=preload("res://bullets/bouncepenetration.tscn")
+var bounceBounceScene=preload("res://bullets/bouncebounce.tscn")
+var explosivePenetrationScene=preload("res://bullets/explosionpenetration.tscn")
+var explosiveExplosiveScene=preload("res://bullets/explosionexplosion.tscn")
+var penetrationPenetrationScene=preload("res://bullets/penetrationpenetration.tscn")
 
 #start with some ammo
-var clip=["bounce", "explosive", "penetration"]
-var chamber ="bounce"
+var clip=["explosive", "explosive", "explosive", "explosive"]
+var chamber ="explosive"
 
 
 
@@ -82,15 +84,23 @@ func blend():
 
 func updateHealth(x):
 	owner.updateHealth(x)
+	if x<0:
+		$hurtSound.play()
 	pass
 
 func get_input():
 	velocity.x = 0
 	if Input.is_action_pressed("move_right"):
 		velocity.x += speed
+		direction=0
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= speed
-
+		direction=1
+	if direction==1:
+		$playerSprite.flip_h=true
+	else:
+		$playerSprite.flip_h=false
+		pass
 func _physics_process(delta):
 	if ready==true:
 		get_input()
@@ -103,6 +113,7 @@ func _physics_process(delta):
 			
 			if is_on_floor():
 				velocity.y = jump_speed
+				#$jumpSound.play()
 		get_node("hands").look_at(get_global_mouse_position())
 		#shooting time
 		if Input.is_action_pressed("fire") and can_fire:
@@ -110,6 +121,7 @@ func _physics_process(delta):
 				var bullet_instance = ammoType().instance()
 				owner.updateAmmo()
 				bullet_instance.position = $hands.get_global_position()
+				$shootSound.play()
 				bullet_instance.rotation_degrees = $hands.rotation_degrees
 				bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated($hands.rotation) )
 				get_tree().get_root().add_child(bullet_instance)
@@ -123,7 +135,7 @@ func _physics_process(delta):
 			#print("chamber"+chamber,"clip", clip)
 		if Input.is_action_just_pressed("blend"):
 			blend()
-
+	
 func ammoType():
 	
 	
@@ -134,17 +146,17 @@ func ammoType():
 			return explosiveScene
 		"penetration":
 			return penetrationScene
-		"bounceExplosive":
+		"bounceexplosive":
 			return bounceExplosiveScene
-		"bouncePenetration":
+		"bouncepenetration":
 			return bouncePenetrationScene
-		"bounceBounce":
+		"bouncebounce":
 			return bounceBounceScene
-		"explosivePenetration":
+		"explosivepenetration":
 			return explosivePenetrationScene
-		"explosiveExplosive":
+		"explosiveexplosive":
 			return explosiveExplosiveScene
-		"penetrationPenetration":
+		"penetrationpenetration":
 			return penetrationPenetrationScene
 	
 	
@@ -156,7 +168,7 @@ func _on_firerate_timeout():
 
 func addFruit(fruit):
 	if clip.size()<=3:
-		clip.append(fruit)
+		clip.push_front(fruit)
 		if chamber=="empty":
 			chamber=clip.pop_front()
 		

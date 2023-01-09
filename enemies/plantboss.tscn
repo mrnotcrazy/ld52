@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://art/plantboss.png" type="Texture" id=1]
+[ext_resource path="res://enemies/plantboss.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 39.875, 52.4375 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 43, 55 )
+
+[node name="plantboss" type="KinematicBody2D" groups=["enemy"]]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 4.125, -4.5625 )
+shape = SubResource( 1 )
+
+[node name="hurtPlayer" type="Area2D" parent="." groups=["enemy"]]
+collision_layer = 14
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtPlayer"]
+position = Vector2( 4, -6 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 7, -6 )
+scale = Vector2( 0.305233, 0.344633 )
+texture = ExtResource( 1 )
+
+[node name="spawnBaby" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="spawnPoint" type="Node2D" parent="."]
+position = Vector2( 1, -3 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="hurtPlayer" to="." method="_on_hurtPlayer_body_entered"]
+[connection signal="timeout" from="spawnBaby" to="." method="_on_spawnBaby_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

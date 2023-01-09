@@ -1,16 +1,15 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://art/place_holder_plants_various.png" type="Texture" id=1]
+[ext_resource path="res://art/plant_bounce_placeholder.png" type="Texture" id=1]
 [ext_resource path="res://plant.gd" type="Script" id=2]
 
 [node name="plant" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.886719, 0.342911, 0.342911, 1 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 356, 11, 69, 99 )
 
 [node name="spawn" type="Timer" parent="."]
 wait_time = 3.0

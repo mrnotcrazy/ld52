@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/farmerman1.mp3-ca47cee67aee697ae208d0540bdfe712.mp3str"
+
+[deps]
+
+source_file="res://sounds/farmerman1.mp3"
+dest_files=[ "res://.import/farmerman1.mp3-ca47cee67aee697ae208d0540bdfe712.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

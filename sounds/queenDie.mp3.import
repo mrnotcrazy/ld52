@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/queenDie.mp3-921ac60ad5fe1aac8b306728dc5cc3de.mp3str"
+
+[deps]
+
+source_file="res://sounds/queenDie.mp3"
+dest_files=[ "res://.import/queenDie.mp3-921ac60ad5fe1aac8b306728dc5cc3de.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
